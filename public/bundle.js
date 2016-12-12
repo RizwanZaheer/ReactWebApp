@@ -24844,27 +24844,43 @@
 
 	    getInitialState: function getInitialState() {
 	        return {
-	            location: 'Islamabad',
-	            temp: 20
+	            isLoading: false
 	        };
 	    },
 	    handleSearch: function handleSearch(location) {
 	        var that = this;
+	        this.setState({ isLoading: true });
 	        openWeatherMap.getTemp(location).then(function (temp) {
 	            that.setState({
 	                location: location,
-	                temp: temp
+	                temp: temp,
+	                isLoading: false
 	            });
 	        }, function (errorMessage) {
-	            alert("errorMessage");
+	            that.setState({
+	                isLoading: false
+	            });
+	            alert("Invalid City is Enter!!!");
 	        });
 	        //alert(`location ${location}`);
 	    },
 	    render: function render() {
 	        var _state = this.state,
+	            isLoading = _state.isLoading,
 	            temp = _state.temp,
 	            location = _state.location;
 
+	        function renderMessage() {
+	            if (isLoading) {
+	                return React.createElement(
+	                    'h2',
+	                    null,
+	                    'Fetching Data...'
+	                );
+	            } else if (temp && location) {
+	                return React.createElement(WeatherMessage, { location: location, temp: temp });
+	            }
+	        }
 	        return React.createElement(
 	            'div',
 	            null,
@@ -24874,7 +24890,7 @@
 	                'Weather Component'
 	            ),
 	            React.createElement(WeatherForm, { onSearch: this.handleSearch }),
-	            React.createElement(WeatherMessage, { location: location, temp: temp })
+	            renderMessage()
 	        );
 	    }
 	});
