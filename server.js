@@ -1,7 +1,6 @@
-var express = require('express'),
+const express = require('express'),
 	app = express(),
     port = process.env.PORT || 3000;
-
 
 // tell express where to look for static assets
 //app.use(express.static(__dirname + '/public'));
