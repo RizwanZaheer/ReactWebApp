@@ -2,3 +2,4 @@
 *.sublime*
 npm-debug.log
 node_modules
+react*.sub*
