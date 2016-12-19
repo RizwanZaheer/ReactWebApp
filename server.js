@@ -6,10 +6,10 @@ const express = require('express'),
 //app.use(express.static(__dirname + '/public'));
 
 app.use(function (req, res, next) {
-	if (req.header['x-forwarded-proto'] === 'http') {
-		next();
-	} else {
+	if (req.header['x-forwarded-proto'] === 'https') {
 		res.redirect('http://' + req.hostname + req.url);
+	} else {
+		next();
 	}
 });
 

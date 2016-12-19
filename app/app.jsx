@@ -6,10 +6,14 @@ var Main = require('./components/Main');
 var Weather = require('./components/Weather');
 var About = require('./components/About');
 
+//loading foundation
+require('style!css!foundation-sites/dist/css/foundation.min.css');
+
+$(document).foundation();
+
 ReactDOM.render(
 	<Router history={hashHistory}>
 		<Route path="/" component={Main}>
-			// IndexRoute in default component to show on after Main component
 			<IndexRoute component={Weather}/>
 			<Route path="about" component={About}/>
 		</Route>
