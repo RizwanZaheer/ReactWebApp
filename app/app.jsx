@@ -8,6 +8,7 @@ var About = require('./components/About');
 
 //loading foundation
 require('style!css!foundation-sites/dist/css/foundation.min.css');
+require('style!css!app/styles/app.css');
 
 $(document).foundation();
 
