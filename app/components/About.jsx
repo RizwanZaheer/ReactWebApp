@@ -4,7 +4,7 @@ var Nav = require('./Nav');
 var About = (props) => {
     return(
         <div>
-            <h1 className="text-center">About</h1>
+            <h1 className="text-center page-title">About</h1>
             {props.children}
             <p> This is Weather application build on React. I have built this for the complete React Web Application.</p>
             <p>Here are some of the tools I used.</p>

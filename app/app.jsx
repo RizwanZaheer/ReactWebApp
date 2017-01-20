@@ -8,9 +8,12 @@ var About = require('./components/About');
 
 //loading foundation
 require('style!css!foundation-sites/dist/css/foundation.min.css');
+$(document).foundation();
+
+// App css
 require('style!css!app/styles/app.css');
 
-$(document).foundation();
+
 
 ReactDOM.render(
 	<Router history={hashHistory}>
